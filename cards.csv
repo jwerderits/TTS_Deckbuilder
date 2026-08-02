@@ -1,0 +1,37 @@
+Tech Number,Tech Archetype,Tech Name,Cost,Description,Type
+1,Disruption,Nuclear Option,5,Destroy every road touching a single hex you're touching,One Time
+2,Disruption,Spin Doctor,2,"Rotate any hexes on the board, moving ships along with them. This can be purchased more than once",One time
+3,Disruption,Highway Robbery,4,"As an action, you may steal a coin from somone within 2 spaces of you",Permanent
+4,Disruption,Dynomyte Rules,4,"As an action, you may destroy an adjacent road",Permanent
+5,Economy,Intelligent Investing,4,Gain 50% increased payments. Rounded Up,Permanent
+6,Economy,Payday Loan,1,"When you receive this card, gain 8 coins. For the rest of the game, pay 1 coin to the bank each turn. If you run out of money you must sell a hexagon.(hexagons sell for $5)",Permanent
+7,Economy,Supply Chain,2,Recieve one coin for every segment in your longest continuous road. Payment bonus do not apply,One Time
+8,Economy,Export Facto,1,"You may sell your powers, as long as the receiving player agrees.",Permanent
+9,Engineer,Molecular Epoxy,4,Adds +1 strength to total road strength on all hexes,Permanent
+10,Engineer,Replicating nanites,7,"When building roads, you may build on any segment touching any of your roads",Permanent
+11,Engineer,Intrasteller Forge,3,Your roads may not be destroyed by any other player.,Permanent
+12,Overseer,Not on my watch,3,Force another player to pick a different tech while upgrading,One time
+13,Economy,Let's Make a Deal,2,"When an opponent would lay down a road, they may put down your road in additiona as long as they agree. payments of coins are accepted",Permanent
+14,Overseer,I'll Use It Better,5,"When another player obtains a power, give them this power to obtain the new power instead.",Permanent
+15,Overseer,Help a Friend Out,1,"When a player lays down a road, they must also lay down one of your roads.",One time
+16,Overseer,Thanks for the Ride,2,You may pay an adjacent opponent (1 per move action) to bring you with them when they move this turn,Permanent
+17,Parasite,What's yours is ours,1,Swap cash Rewards with a players when they complete a circuit you have a road on.,One Time
+18,Parasite,Happy to help,4,Gain double payout from roads on excavations claimed by other players.,Permanent
+19,Parasite,Government Subsidies,3,Gain one additional payout every time another player carves a hex you have a road on. (doesn't stack with other effects),Permanent
+20,Parasite,Patent Pending,1,"Immediately after an opponent uses a One Time Power less than 6 in cost, gain that power",One Time
+21,Parasite ,Assimilation,5,Change another players roads that you are touching into one of your own.,Permanent
+22,Disruption,Remote Hacking,4,Move an Opponent up to 3 legal spaces,One Time
+23,Gambler,Calculated Risk,2,"If you win/lose a contested circuit by exactly 2 strength -> take all coins, otherwise forfiet all coins scored for completed circuts",Permanent
+24,Gambler,Market Forcasting,1,"Predict how many coins each opponent has in 2 turns. For each opponent If you are within 1, take 2/3 of their coins (rounded up), otherwise pay 1/3 of your coins ",One Time
+25,Disruption,Market Freeze,1,No one can purchase techs for 2 turns,One Time
+26,Economy,Takes Tech to Make Tech,2,You may purchase 1 additional tech each turn,Permanent
+27,Gambler,1st or 8th,3,Claim all rewards for having the most stength in a circuit (overrides parasitic type effects). Forfiet all other forms of rewards/payment.,Permanent
+28,Gambler,Headshot,12,Target Player loses 2 turns,One Time
+,Traveler,The ol' switcheroo,3,Swap places with another player,One Time
+,Traveler,Warp Drive,4,Move to any space,One time
+,Traveler,Unregulated Fuel Depots,2,Opponents may pay you to move one extra space on their turn,Permanent
+,Traveler,Need for Speed,3,May move one extra space on your turn.,Permanent
+,Traveler,Gotta go Fast,1,Move two extra spaces,One time
+,Gambler,Call Your Shot,2,"Choose a hex where you currently have no roads. If you claim this hex, gain 5 additional coins.",One time
+,Traveler,Improved Infrastructure ,3,Gain two additional movement points when moving along previously built roads.,Permanent 
+,Engineer,Corruption,4,Lower the strenght of opponent roads by 1 on hexes you complete,Permanent
