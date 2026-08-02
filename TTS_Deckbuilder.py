@@ -32,11 +32,13 @@ BLACK = (30,30,30)
 WHITE = (255,255,255)
 
 ARCHETYPE_COLORS = {
-    "Disruption": (187,55,55),
-    "Economy": (208,168,49),
-    "Research": (70,110,220),
-    "Military": (145,62,190),
-    "Defense": (60,150,80),
+    "Parasite": (40, 128, 60),
+    "Overseer": (145, 7, 184),
+    "Disruption": (150, 30, 6),
+    "Economy": (95, 173, 5),
+    "Engineer": (196, 120, 6),
+    "Gambler": (204, 201, 33),
+    "Traveler": (21, 162, 194)
 }
 
 DEFAULT_COLOR = (90,90,90)
@@ -301,32 +303,54 @@ print("Generated", len(generated), "cards.")
 # --------------------------------------------
 # CARD SHEET
 # --------------------------------------------
+# --------------------------------------------
+# CARD SHEETS (supports any number of cards)
+# --------------------------------------------
 
-rows = math.ceil(len(generated)/CARDS_PER_ROW)
+MAX_ROWS = 7
+MAX_CARDS_PER_SHEET = CARDS_PER_ROW * MAX_ROWS
 
-sheet = Image.new(
-    "RGB",
-    (
-        CARD_WIDTH*CARDS_PER_ROW,
-        CARD_HEIGHT*rows
-    ),
-    (255,255,255)
-)
+sheet_count = math.ceil(len(generated) / MAX_CARDS_PER_SHEET)
 
-for index,file in enumerate(generated):
+cardsheets = []
 
-    img = Image.open(file)
+for sheet_index in range(sheet_count):
 
-    x = (index % CARDS_PER_ROW)*CARD_WIDTH
-    y = (index // CARDS_PER_ROW)*CARD_HEIGHT
+    start = sheet_index * MAX_CARDS_PER_SHEET
+    end = min(start + MAX_CARDS_PER_SHEET, len(generated))
 
-    sheet.paste(img,(x,y))
+    sheet_cards = generated[start:end]
 
-sheet.save(
-    os.path.join(OUTPUT,"cardsheet.png")
-)
+    rows = math.ceil(len(sheet_cards) / CARDS_PER_ROW)
 
-print("cardsheet.png complete")
+    sheet = Image.new(
+        "RGB",
+        (
+            CARD_WIDTH * CARDS_PER_ROW,
+            CARD_HEIGHT * rows
+        ),
+        (255,255,255)
+    )
+
+    for i, filename in enumerate(sheet_cards):
+
+        img = Image.open(filename)
+
+        x = (i % CARDS_PER_ROW) * CARD_WIDTH
+        y = (i // CARDS_PER_ROW) * CARD_HEIGHT
+
+        sheet.paste(img, (x,y))
+
+    outfile = os.path.join(
+        OUTPUT,
+        f"cardsheet_{sheet_index+1}.png"
+    )
+
+    sheet.save(outfile)
+
+    cardsheets.append(outfile)
+
+print(f"Created {len(cardsheets)} cardsheets.")
 
 
 # --------------------------------------------
@@ -376,45 +400,51 @@ back.save(
 # DECK JSON
 # --------------------------------------------
 
-deck_ids=[]
-contained=[]
+custom_deck = {}
+deck_ids = []
+contained = []
 
-for i,row in cards.iterrows():
+for i, row in cards.iterrows():
 
-    cid=100+i
+    deck_number = (i // MAX_CARDS_PER_SHEET) + 1
+    local_index = i % MAX_CARDS_PER_SHEET
 
-    deck_ids.append(cid)
+    card_id = deck_number * 100 + local_index
+
+    deck_ids.append(card_id)
 
     contained.append({
-        "Name":"Card",
-        "CardID":cid,
-        "Nickname":row["Tech Name"],
-        "Description":row["Description"]
+        "Name": "Card",
+        "CardID": card_id,
+        "Nickname": row["Tech Name"],
+        "Description": row["Description"]
     })
 
-deck={
-    "ObjectStates":[
-        {
-            "Name":"DeckCustom",
-            "Nickname":"Technology Deck",
-            "DeckIDs":deck_ids,
-            "CustomDeck":{
-                "1":{
-                    "FaceURL":"UPLOAD_cardsheet.png_AND_PASTE_URL",
-                    "BackURL":"UPLOAD_back.png_AND_PASTE_URL",
-                    "NumWidth":CARDS_PER_ROW,
-                    "NumHeight":rows,
-                    "BackIsHidden":True,
-                    "UniqueBack":False,
-                    "Type":0
-                }
-            },
-            "ContainedObjects":contained
-        }
-    ]
+for deck_number, sheet in enumerate(cardsheets, start=1):
+
+    cards_in_sheet = min(
+        MAX_CARDS_PER_SHEET,
+        len(cards) - (deck_number-1)*MAX_CARDS_PER_SHEET
+    )
+
+    rows = math.ceil(cards_in_sheet / CARDS_PER_ROW)
+
+    custom_deck[str(deck_number)] = {
+        "FaceURL": f"cardsheet_{deck_number}.png",
+        "BackURL": "back.png",
+        "NumWidth": CARDS_PER_ROW,
+        "NumHeight": rows,
+        "BackIsHidden": True,
+        "UniqueBack": False,
+        "Type": 0
+    }
+
+deck = {
+    "ObjectStates": [{
+        "Name": "DeckCustom",
+        "Nickname": "Technology Deck",
+        "DeckIDs": deck_ids,
+        "CustomDeck": custom_deck,
+        "ContainedObjects": contained
+    }]
 }
-
-with open(os.path.join(OUTPUT,"deck.json"),"w") as f:
-    json.dump(deck,f,indent=4)
-
-print("Done!")

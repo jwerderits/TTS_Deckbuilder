@@ -19,7 +19,7 @@ Tech Number,Tech Archetype,Tech Name,Cost,Description,Type
 18,Parasite,Happy to help,4,Gain double payout from roads on excavations claimed by other players.,Permanent
 19,Parasite,Government Subsidies,3,Gain one additional payout every time another player carves a hex you have a road on. (doesn't stack with other effects),Permanent
 20,Parasite,Patent Pending,1,"Immediately after an opponent uses a One Time Power less than 6 in cost, gain that power",One Time
-21,Parasite ,Assimilation,5,Change another players roads that you are touching into one of your own.,Permanent
+21,Parasite,Assimilation,5,Change another players roads that you are touching into one of your own.,Permanent
 22,Disruption,Remote Hacking,4,Move an Opponent up to 3 legal spaces,One Time
 23,Gambler,Calculated Risk,2,"If you win/lose a contested circuit by exactly 2 strength -> take all coins, otherwise forfiet all coins scored for completed circuts",Permanent
 24,Gambler,Market Forcasting,1,"Predict how many coins each opponent has in 2 turns. For each opponent If you are within 1, take 2/3 of their coins (rounded up), otherwise pay 1/3 of your coins ",One Time
@@ -27,11 +27,11 @@ Tech Number,Tech Archetype,Tech Name,Cost,Description,Type
 26,Economy,Takes Tech to Make Tech,2,You may purchase 1 additional tech each turn,Permanent
 27,Gambler,1st or 8th,3,Claim all rewards for having the most stength in a circuit (overrides parasitic type effects). Forfiet all other forms of rewards/payment.,Permanent
 28,Gambler,Headshot,12,Target Player loses 2 turns,One Time
-,Traveler,The ol' switcheroo,3,Swap places with another player,One Time
-,Traveler,Warp Drive,4,Move to any space,One time
-,Traveler,Unregulated Fuel Depots,2,Opponents may pay you to move one extra space on their turn,Permanent
-,Traveler,Need for Speed,3,May move one extra space on your turn.,Permanent
-,Traveler,Gotta go Fast,1,Move two extra spaces,One time
-,Gambler,Call Your Shot,2,"Choose a hex where you currently have no roads. If you claim this hex, gain 5 additional coins.",One time
-,Traveler,Improved Infrastructure ,3,Gain two additional movement points when moving along previously built roads.,Permanent 
-,Engineer,Corruption,4,Lower the strenght of opponent roads by 1 on hexes you complete,Permanent
+29,Traveler,The ol' switcheroo,3,Swap places with another player,One Time
+30,Traveler,Warp Drive,4,Move to any space,One time
+31,Traveler,Unregulated Fuel Depots,2,Opponents may pay you to move one extra space on their turn,Permanent
+32,Traveler,Need for Speed,3,May move one extra space on your turn.,Permanent
+33,Traveler,Gotta go Fast,1,Move two extra spaces,One time
+34,Gambler,Call Your Shot,2,"Choose a hex where you currently have no roads. If you claim this hex, gain 5 additional coins.",One time
+35,Traveler,Improved Infrastructure ,3,Gain two additional movement points when moving along previously built roads.,Permanent 
+36,Engineer,Corruption,4,Lower the strenght of opponent roads by 1 on hexes you complete,Permanent
